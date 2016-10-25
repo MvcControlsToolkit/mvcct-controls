@@ -1,0 +1,37 @@
+{
+    "name":  "mvcct-controls",
+    "version": "1.0.0",
+    "homepage": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback",
+    "description": "core javascript files for Mvc Controls Toolkit controls",
+    "main": [
+       "mvcct.controls.min.js"
+    ],
+    "ignore": [
+        "**/.*",
+        "*.json",
+        "*.md",
+        "*.txt",
+        "!LICENSE.txt",
+        "gulpfile.js"
+    ],
+    "keywords": [
+        "grid",
+        "detail form",
+        "autocomplete",
+        "pager",
+        "mvc controls toolkit"
+    ],
+    "dependencies": {
+        "mvcct-enhancer": ">=1.0.1"
+        
+    },
+    "authors": [
+        "Mvc Controls Toolkit Team",
+        "Francesco Abbruzzese"
+    ],
+    "license": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/blob/master/LICENSE.txt",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MvcControlsToolkit/mvcct-controls.git"
+    }
+}

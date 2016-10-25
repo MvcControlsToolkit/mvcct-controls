@@ -1,0 +1,44 @@
+{
+  "name": "mvcct-controls",
+  "version": "1.0.0",
+  "description": "core javascript files for Mvc Controls Toolkit controls",
+  "main": "mvcct.controls.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MvcControlsToolkit/mvcct-controls.git"
+  },
+  "keywords": [
+     "grid",
+      "detail form",
+      "autocomplete",
+      "pager",
+      "mvc controls toolkit"
+  ],
+  "readme": "bootstrap widgets based html5 inputs fallback",
+  "author": "Mvc Controls Toolkit Team",
+  "license": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/blob/master/LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/issues"
+  },
+  "homepage": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback",
+  "files": [
+    "LICENSE.txt",
+    "mvcct.controls.js",
+    "mvcct.controls.min.js",
+    "modules/mvcct.controls.ajax.js",
+    "modules/mvcct.controls.ajax.min.js",
+    "modules/mvcct.controls.autocomplete.js",
+    "modules/mvcct.controls.autocomplete.min.js",
+    "modules/mvcct.controls.serverGrid.js",
+    "modules/mvcct.controls.serverGrid.min.js",
+    "modules/mvcct.routing.js",
+    "modules/mvcct.routing.min.js"
+  ],
+  "dependencies": {
+        "mvcct-enhancer": ">=1.0.1"  
+    },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-closure-compiler": "^0.4.0"
+  }
+}
