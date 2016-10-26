@@ -1,5 +1,5 @@
 ﻿(function () {
-    var DEBUG = false;
+    var DEBUG = true;
     (function (undefined) {
         var window = this || (0, eval)('this');
         (function (factory) {
@@ -370,14 +370,14 @@
                 var str2DOMElement = function (html) {
                     /* code taken from jQuery */
                     var wrapMap = {
-                        option: [1, "<select multiple='multiple'>", "</select>"],
-                        legend: [1, "<fieldset>", "</fieldset>"],
-                        area: [1, "<map>", "</map>"],
-                        param: [1, "<object>", "</object>"],
-                        thead: [1, "<table>", "</table>"],
-                        tr: [2, "<table><tbody>", "</tbody></table>"],
-                        col: [2, "<table><tbody></tbody><colgroup>", "</colgroup></table>"],
-                        td: [3, "<table><tbody><tr>", "</tr></tbody></table>"],
+                        'option': [1, "<select multiple='multiple'>", "</select>"],
+                        'legend': [1, "<fieldset>", "</fieldset>"],
+                        'area': [1, "<map>", "</map>"],
+                        'param': [1, "<object>", "</object>"],
+                        'thead': [1, "<table>", "</table>"],
+                        'tr': [2, "<table><tbody>", "</tbody></table>"],
+                        'col': [2, "<table><tbody></tbody><colgroup>", "</colgroup></table>"],
+                        'td': [3, "<table><tbody><tr>", "</tr></tbody></table>"],
 
                         // IE6-8 can't serialize link, script, style, or any html5 (NoScope) tags,
                         // unless wrapped in a div with non-breaking characters in front of it.

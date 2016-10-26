@@ -1,5 +1,5 @@
 ﻿(function () {
-    var DEBUG = false;
+    var DEBUG = true;
     (function (undefined) {
         var window = this || (0, eval)('this');
         (function (factory) {
@@ -57,7 +57,7 @@
                             enhancer["transform"](container);
                         }
                         if (toCreate) {
-                            jQuery(x).modal({
+                            jQuery(x)['modal']({
                                 show: false,
                                 backdrop: 'static'
                             });
@@ -70,10 +70,10 @@
                                 })
                             }
                         }
-                        jQuery(x).modal('show');
+                        jQuery(x)['modal']('show');
                     };
                     closeModal = optionsModal["closeModal"] || function (x) {
-                        jQuery(x).modal('hide'); 
+                        jQuery(x)['modal']('hide'); 
                         x['expando_onSubmit']=null;
                         x['expando_onSubmitError']=null;
                     };
