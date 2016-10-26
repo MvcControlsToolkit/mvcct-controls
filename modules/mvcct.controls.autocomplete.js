@@ -1,5 +1,5 @@
 ﻿(function () {
-    var DEBUG = true;
+    var DEBUG = false;
     (function (undefined) {
         var window = this || (0, eval)('this');
         (function (factory) {

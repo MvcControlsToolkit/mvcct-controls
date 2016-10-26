@@ -14,13 +14,12 @@
       "pager",
       "mvc controls toolkit"
   ],
-  "readme": "bootstrap widgets based html5 inputs fallback",
   "author": "Mvc Controls Toolkit Team",
-  "license": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/blob/master/LICENSE.txt",
+  "license": "https://github.com/MvcControlsToolkit/mvcct-controls/blob/master/LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/issues"
+    "url": "https://github.com/MvcControlsToolkit/mvcct-controls/issues"
   },
-  "homepage": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback",
+  "homepage": "https://github.com/MvcControlsToolkit/mvcct-controls",
   "files": [
     "LICENSE.txt",
     "mvcct.controls.js",
@@ -35,7 +34,8 @@
     "modules/mvcct.routing.min.js"
   ],
   "dependencies": {
-        "mvcct-enhancer": ">=1.0.1"  
+        "mvcct-enhancer": ">=1.0.1",
+        "awesomplete": ">=1.1.1" 
     },
   "devDependencies": {
     "gulp": "^3.9.1",

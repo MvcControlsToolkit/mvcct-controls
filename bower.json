@@ -1,7 +1,7 @@
 {
     "name":  "mvcct-controls",
     "version": "1.0.0",
-    "homepage": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback",
+    "homepage": "https://github.com/MvcControlsToolkit/mvcct-controls",
     "description": "core javascript files for Mvc Controls Toolkit controls",
     "main": [
        "mvcct.controls.min.js"
@@ -22,14 +22,15 @@
         "mvc controls toolkit"
     ],
     "dependencies": {
-        "mvcct-enhancer": ">=1.0.1"
+        "mvcct-enhancer": ">=1.0.1",
+        "awesomplete": ">=1.1.1"
         
     },
     "authors": [
         "Mvc Controls Toolkit Team",
         "Francesco Abbruzzese"
     ],
-    "license": "https://github.com/MvcControlsToolkit/bootstrap-html5-fallback/blob/master/LICENSE.txt",
+    "license": "https://github.com/MvcControlsToolkit/mvcct-controls/blob/master/LICENSE.txt",
     "repository": {
         "type": "git",
         "url": "https://github.com/MvcControlsToolkit/mvcct-controls.git"
