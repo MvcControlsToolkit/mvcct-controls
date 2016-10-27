@@ -525,6 +525,10 @@
                         var val = evt.target.getAttribute(operationAttribute);
                         if (val) dispatcher(val, evt.target, "_focus");
                     }, true);
+                    if(document.activeElement && document.activeElement.getAttribute){
+                        var val = document.activeElement.getAttribute(operationAttribute);
+                        if (val) dispatcher(val, document.activeElement, "_focus");
+                    }
                 }
                 enhancer["register"](init, true, null, "mvcct event handling");
                 //Finish actual code
