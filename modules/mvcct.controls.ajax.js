@@ -83,18 +83,18 @@
                         summary.appendChild(toAppend);
                     }
                     errors.map(function (er) {
-                        if (!er.prefix) appendToList(toAppend, er.errors);
+                        if (!er["prefix"]) appendToList(toAppend, er["errors"]);
                         else {
-                            var el = form.querySelector('[name="' + er.prefix+'"]');
-                            if (!el) { appendToList(toAppend, er.errors); return; }
+                            var el = form.querySelector('[name="' + er["prefix"]+'"]');
+                            if (!el) { appendToList(toAppend, er["errors"]); return; }
                             el.classList.add(fieldErrorClass);
                             var label = errorLabelLocator(el, form);
                             if (label) {
                                 label.classList.add(errorLabelInvalidClass);
                                 label.classList.remove(errorLabelValidClass);
-                                label.appendChild(document.createTextNode(er.errors[0]));
+                                label.appendChild(document.createTextNode(er["errors"][0]));
                             }
-                            else appendToList(toAppend, er.errors);
+                            else appendToList(toAppend, er["errors"]);
                         }
                     });
                 }
