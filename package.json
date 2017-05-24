@@ -11,6 +11,7 @@
      "grid",
       "detail form",
       "autocomplete",
+      "query",
       "pager",
       "mvc controls toolkit"
   ],
@@ -30,12 +31,15 @@
     "modules/mvcct.controls.autocomplete.min.js",
     "modules/mvcct.controls.serverGrid.js",
     "modules/mvcct.controls.serverGrid.min.js",
+    "modules/mvcct.controls.query.js",
+    "modules/mvcct.controls.query.min.js",
     "modules/mvcct.routing.js",
     "modules/mvcct.routing.min.js"
   ],
   "dependencies": {
-        "mvcct-enhancer": ">=1.0.1",
-        "awesomplete": ">=1.1.1" 
+        "mvcct-enhancer": ">=1.1.0",
+        "awesomplete": ">=1.1.1" ,
+        "mvcct-odata": ">=1.0.0"
     },
   "devDependencies": {
     "gulp": "^3.9.1",

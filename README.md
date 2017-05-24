@@ -24,6 +24,8 @@ properly.**
 
  **mvcct.controls.serverGrid** must be included when using any server grid.
 
+ **mvcct.controls.query** must be included when using query windows/buttons. In turn, it requires  mvcct.odata.js located in the mvcct-odata dependency.
+
  **mvcct.controls.autocomplete** must be included when using autocomplete (also when using grid with autocomplete based columns).
  In this case you must include also JavaScript and Css files from the awesomplete package.
 

@@ -14,7 +14,18 @@ gulp.task('serverGrid:compile', function() {
     }))
     .pipe(gulp.dest('./modules'));
 });
-
+gulp.task('query:compile', function() {
+  return gulp.src(["modules/mvcct.controls.query.js"], { base: "." })
+    .pipe(closureCompiler({
+      //compilerPath: 'node_modules/gulp-closure-compiler/node_modules/google-closure-compiler/compiler.jar',
+      fileName: 'mvcct.controls.query.min.js',
+      compilerFlags: {
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        warning_level:'QUIET'
+      }
+    }))
+    .pipe(gulp.dest('./modules'));
+});
 gulp.task('routing:compile', function() {
   return gulp.src(["modules/mvcct.routing.js"], { base: "." })
     .pipe(closureCompiler({
@@ -65,4 +76,5 @@ gulp.task('controls:compile', function() {
     }))
     .pipe(gulp.dest('.'));
 });
-gulp.task("default", ["controls:compile", "ajax:compile", "autocomplete:compile", "serverGrid:compile", "routing:compile"]);
+
+gulp.task("default", ["controls:compile", "ajax:compile", "autocomplete:compile", "serverGrid:compile", "query:compile", "routing:compile"]);

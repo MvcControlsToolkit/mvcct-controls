@@ -19,12 +19,13 @@
         "detail form",
         "autocomplete",
         "pager",
+        "query",
         "mvc controls toolkit"
     ],
     "dependencies": {
-        "mvcct-enhancer": ">=1.0.1",
-        "awesomplete": ">=1.1.1"
-        
+        "mvcct-enhancer": ">=1.1.0",
+        "awesomplete": ">=1.1.1",
+        "mvcct-odata": ">=1.0.0"
     },
     "authors": [
         "Mvc Controls Toolkit Team",

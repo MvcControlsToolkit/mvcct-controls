@@ -26,14 +26,34 @@
                 var clearErrors;
                 var validationSummarySelector, validationSummaryValidClass, validationSummaryInvalidClass;
                 var fieldErrorClass, errorLabelValidClass, errorLabelInvalidClass, errorLabelLocator;
+                var openModal, closeModal, openStaticModal, closeStaticModal;
                 function processOptions(o) {
-                    options = o["ajax"] || {};
-                    empty = options['empty'] || function (x) {
-                        if (x) x.innerHTML = '';
-                        if (jQuery) jQuery(x)["empty"]();
+                    options = o["ajax"] = o["ajax"] || {};
+                    empty = options['empty'] =  options['empty'] || function (x) {
+                        if (!x) return;
+                        if (jQuery){
+                            var jx=jQuery(x);
+                            if(jQuery['validator']){
+                                var form=findForm(x);
+                                if(form){
+                                    var validator = jQuery['data'](form, "validator" );
+                                    if(validator){
+                                        var settings = validator['settings'];
+                                        if(settings){
+                                            var staticRules = settings['rules'];
+                                            jx['find']("[data-val=true]")['each'](function(){
+                                                delete staticRules[ this.name ];
+                                            });
+                                        }
+                                    }     
+                                }
+                             }
+                             jx["empty"]();
+                             
+                        }
                         else x.innerHTML = '';
                     };
-                    validateForm = options['validateForm'] || function (x)
+                    validateForm = options['validateForm'] = options['validateForm'] || function (x)
                     {
                         if (jQuery && jQuery['validator']) {
                             return jQuery(x)["closest"]('form')["validate"]()["form"]();
@@ -59,6 +79,70 @@
                     serverControls['dispatchServerErrors'] = dispatchServerErrors;
                     serverControls['clearErrors'] = clearErrors;
                     serverControls['validateForm'] = validateForm;
+                    var serverWidgetsOptions = o["serverWidgets"] = o["serverWidgets"] || {};
+                    var optionsModal = serverWidgetsOptions["modal"] =serverWidgetsOptions["modal"] || {};
+                    openModal = optionsModal["openModal"] = optionsModal["openModal"] || function (x, id, version) {
+                        var container = document.getElementById(id);
+                        var toCreate = true;
+                        if (!container) {
+                            container = document.createElement('DIV');
+                            container.setAttribute('id', id);
+                            container.setAttribute('data-version', version);
+                            container.appendChild(x);
+                            document.body.appendChild(container);
+                            enhancer["transform"](container);
+                        }
+                        else  {
+                            container.firstChild['expando_onSubmit']=null;
+                            container.firstChild['expando_onSubmitError']=null;
+                            empty(container);
+                            container.setAttribute('data-version', version);
+                            container.appendChild(x);
+                            enhancer["transform"](container);
+                        }
+                        if (toCreate) {
+                            jQuery(x)['modal']({
+                                show: false,
+                                backdrop: 'static'
+                            });
+                            if (x.getAttribute('data-destroy-on-close')) {
+                                jQuery(x).on('hidden.bs.modal', function (e) {
+                                    x['expando_onSubmit']=null;
+                                    x['expando_onSubmitError']=null;
+                                    empty(x.parentNode);
+                                    x.parentNode.parentNode.removeChild(x.parentNode);
+                                })
+                            }
+                        }
+                        jQuery(x)['modal']('show');
+                    };
+                    closeModal = optionsModal["closeModal"] = optionsModal["closeModal"] || function (x) {
+                        jQuery(x)['modal']('hide'); 
+                        x['expando_onSubmit']=null;
+                        x['expando_onSubmitError']=null;
+                    };
+                    openStaticModal= optionsModal["openStaticModal"] = optionsModal["openStaticModal"] || function(x){
+                        var jx = jQuery(x);
+                        if(!x['expando_created']) {
+                            jx['show']();
+                            jx['addClass'](jx['attr']('data-class'));
+                            jx['modal']({
+                                show: false,
+                                backdrop: 'static'
+                            });
+                            jx['on']('hidden.bs.modal', function (e) {
+                                    x['expando_onSubmit']=null;
+                                    x['expando_onSubmitError']=null;
+                            });
+                        }
+                        jx['modal']('show');
+                    };
+                    closeStaticModal = optionsModal["closeStaticModal"] = optionsModal["closeStaticModal"] || function (x) {
+                        jQuery(x)['modal']('hide'); 
+                        x['expando_onSubmit']=null;
+                        x['expando_onSubmitError']=null;
+                    };
+
                 };
                 function appendToList(ul, txtArray) {
                     if (!ul || !txtArray) return;
@@ -158,6 +242,7 @@
                     proc.onstart ? proc.onstart(el) : null;
                     ajax.send();
                 }
+                serverControls['attachHtml'] = attachHtml;
                 var endpoints = {};
                 var addEndpoint = function (name, success, router, errorMessageF, error, start, completed, progress, bearerToken)
                 {
