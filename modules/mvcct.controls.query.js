@@ -127,6 +127,7 @@
                             else{
                                 condition["jsValue"] = enhancer["parse"](type, value, trueType == "hidden" || trueType == "radio" || el.tagName == "SELECT");
                                 condition["jsUtc"] = el.getAttribute('data-is-utc')=='true';
+                                if(!condition["jsValue"] && trueType=="hidden") condition["property"] = null;
                             }
                             var companion = el[expandoCompanion];
                             if (companion) condition['takeFrom'] = companion.name;
@@ -297,10 +298,11 @@
                     var args = infos['args'];
                     if(!args.length) return;
                     if(args.length == 1) window.location.href = args[0];
+                    else if(args[1] == '#') window.open(args[0]);
                     else{
                         serverControls['attachHtml']({
                             'href': args[0],
-                            'args': agrs.length == 2 ? [args[1]] : [args[1], args[2]]
+                            'args': args.length == 2 ? [args[1]] : [args[1], args[2]]
                         });
                     }
                 }
