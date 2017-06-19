@@ -82,7 +82,7 @@
                 function prepareFilter(form)
                 {
                     //collects information
-                    fieldsIndex={};
+                    var fieldsIndex={};
                     [].filter.call(form.elements, function (el) {
                         return (el.type != "radio" && el.type != 'button' 
                         && el.type != 'reset' && el.type != 'submit' && el.tagName != 'BUTTON') || el.checked;
@@ -215,7 +215,7 @@
                 }
                 function prepareSorting(form)
                 {
-                    fieldsIndex={};
+                    var fieldsIndex=[];
                     [].filter.call(form.elements, function (el) {
                         return (el.type != "radio" && el.type != "checkbox" && el.type != 'button' 
                         && el.type != 'reset' && el.type != 'submit' && el.tagName != 'BUTTON') || el.checked;
@@ -232,17 +232,20 @@
                             isType=true;
                             index = el.name.substr(13);
                         }
+                        index=parseInt(index);
                         var clause = fieldsIndex[index];
                         if(!clause) fieldsIndex[index] = clause = {};
                         if(isType) clause['down'] = el.value == 'desc';
                         else clause['property'] = el.value;
                     });
                     var res = [];
-                    for (var index in fieldsIndex) {
-                        if (fieldsIndex.hasOwnProperty(index)) {
+                    var duplicates = {};
+                    for (var index=0; index<fieldsIndex.length; index++) {
                             var clause = fieldsIndex[index];
-                            if(clause['property']) res.push(new odata['QuerySortingCondition'](clause));
-                        }
+                            if(!clause) continue;
+                            if(clause['property'] && !
+                                duplicates[clause['property']]) res.push(new odata['QuerySortingCondition'](clause));
+                            duplicates[clause['property']] = true;
                     }
                     if (res.length) return res;
                     else return null;

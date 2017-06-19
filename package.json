@@ -1,6 +1,6 @@
 {
   "name": "mvcct-controls",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "core javascript files for Mvc Controls Toolkit controls",
   "main": "mvcct.controls.min.js",
   "repository": {
