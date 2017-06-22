@@ -1,6 +1,6 @@
 {
     "name":  "mvcct-controls",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "homepage": "https://github.com/MvcControlsToolkit/mvcct-controls",
     "description": "core javascript files for Mvc Controls Toolkit controls",
     "main": [
@@ -25,7 +25,7 @@
     "dependencies": {
         "mvcct-enhancer": ">=1.1.0",
         "awesomplete": ">=1.1.1",
-        "mvcct-odata": ">=1.0.1"
+        "mvcct-odata": ">=1.0.2"
     },
     "authors": [
         "Mvc Controls Toolkit Team",

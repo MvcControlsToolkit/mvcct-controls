@@ -39,7 +39,7 @@
   "dependencies": {
         "mvcct-enhancer": ">=1.1.0",
         "awesomplete": ">=1.1.1" ,
-        "mvcct-odata": ">=1.0.1"
+        "mvcct-odata": ">=1.0.2"
     },
   "devDependencies": {
     "gulp": "^3.9.1",

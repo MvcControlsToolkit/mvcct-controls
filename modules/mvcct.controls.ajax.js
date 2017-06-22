@@ -133,6 +133,10 @@
                             jx['on']('hidden.bs.modal', function (e) {
                                     x['expando_onSubmit']=null;
                                     x['expando_onSubmitError']=null;
+                                    if (x['expando_onHidden']) {
+                                        x['expando_onHidden']();
+                                        x['expando_onHidden'] = null;
+                                    }
                             });
                         }
                         jx['modal']('show');
